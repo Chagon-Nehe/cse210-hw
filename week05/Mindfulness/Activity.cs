@@ -1,0 +1,72 @@
+using System;
+
+public class Activity
+{
+    protected string _activityName;
+    protected string _activityDescription;
+    protected int _duration;
+
+    public Activity(string activityName, string activityDescription, int duration)
+    {
+        _activityName = activityName;
+        _activityDescription = activityDescription;
+        _duration = duration;
+    }
+    public string GetActivityName()
+    {
+        return _activityName;
+    }
+    public void SetActivityName(string activityName)
+    {
+        _activityName = activityName;
+    }
+    public string GetActivityDescription()
+    {
+        return _activityDescription;
+    }
+    public void SetActivityDescription(string activityDescription)
+    {
+        _activityDescription = activityDescription;
+    }
+    public int GetDuration()
+    {
+        return _duration;
+    }
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
+    }
+    public void DisplayStartMessage()
+    {
+
+        Console.WriteLine($"Starting {_activityName} for {_duration} seconds.");
+        Console.WriteLine(_activityDescription);
+    }
+    public void DisplayEndMessage()
+    {
+        Console.WriteLine($"Well done!!");
+        ShowSpinner(2);
+        Console.WriteLine($"Ending {_activityName}. Hope you enjoyed it!");
+    }
+    public void ShowSpinner(int seconds)
+    {
+        Console.Write("Loading");
+        for (int i = 0; i < seconds; i++)
+        {
+            Console.Write(".");
+            System.Threading.Thread.Sleep(1000); // Simulate loading
+        }
+        Console.WriteLine();
+    }
+    public void ShowCountdown(int seconds)
+    {
+        for (int i = seconds; i > 0; i--)
+        {
+            Console.WriteLine($" {i}");
+            System.Threading.Thread.Sleep(1000); // Simulate countdown
+        }
+        
+    }
+
+
+}
